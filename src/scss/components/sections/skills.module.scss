@@ -1,0 +1,15 @@
+.skillsCont{
+    width: 100%;
+    min-height: 50vh;
+    color: var(--ligth-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .titleSkills{
+        font-size: 4em;
+        background: linear-gradient(to right, var(--ligth-blue), var(--pink));
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}

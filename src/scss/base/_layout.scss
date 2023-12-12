@@ -1,0 +1,19 @@
+.generalLayout{
+    display: grid;
+    grid-template-rows: 12vh 20vh auto  12vh;
+    grid-template-columns: 1fr;
+    grid-template-areas: "header" "sidebar" "main" "footer";
+    height: 100vh;
+    background: var(--dark-background);
+}
+
+@media (min-width:480px){
+    .generalLayout{
+        display: grid;
+        grid-template-rows: 12vh auto 12vh;
+        grid-template-columns: 25vw auto;
+        grid-template-areas: "header header header"
+                             "sidebar main main"
+                             "footer footer footer";
+    }
+}

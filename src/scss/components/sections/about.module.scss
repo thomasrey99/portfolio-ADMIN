@@ -1,0 +1,55 @@
+.aboutCont{
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    gap: 10px;
+    .titleImgCont{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        position: relative;
+        gap: 20px;
+        .titleAnimated {
+            font-size: 4em;
+            background: linear-gradient(to right, var(--ligth-blue), var(--pink));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .img{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            box-shadow: 1px 1px 20px var(--pink);
+        }
+    }
+    
+    p{
+        color:white;
+        span{
+            color:var(--ligth-blue) ;
+            font-size: 1.5em;
+        }
+        em{
+            color:var(--ligth-blue);
+        }
+    }
+    button{
+        color: var(--ligth-blue);
+        font-weight: bold;
+        margin-top: 20px;
+        cursor: pointer;
+        padding: 10px 20px;
+        border: 1px solid var(--ligth-blue);
+        border-radius: 20px;
+        &:hover{
+            background: var(--ligth-blue);
+            color: black;
+            box-shadow: 1px 1px 15px var(--ligth-blue);
+        }
+    }
+}

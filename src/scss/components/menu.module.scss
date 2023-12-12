@@ -1,0 +1,50 @@
+.menuLayout{
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #dedede;
+    ul{
+        height: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-evenly;
+
+        li{
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            color: white;
+            display: flex;
+            span{
+                color:var(--pink);
+                text-shadow: 1px 1px 10px var(--pink);
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0; /* Establece el inicio del borde en la izquierda */
+                width: 0;
+                height: 1px; /* Grosor del borde inferior */
+                background-color: white; /* Color del borde */
+                transition: width 0.3s ease-out; /* Transición suave de la animación del borde */
+            }
+          
+            &:hover::after {
+                width: 100%; /* Ancho del borde al hacer hover */
+            }
+        }
+        
+    }
+}
+@media (max-width:480px){
+    .menuLayout{
+        ul{
+            height: auto;
+        }
+    }
+}
+

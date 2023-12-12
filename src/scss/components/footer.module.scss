@@ -1,0 +1,24 @@
+.footerLayout{
+    grid-area: footer;
+    border-top: 1px solid #dedede;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    .imgLogo{
+        cursor: pointer;
+        transition: all 1s;
+        &:hover{
+            transform: scale(1.2);
+        }
+    }
+    .copyrigth{
+        color: white;
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+
+    }
+}
