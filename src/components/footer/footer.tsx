@@ -1,13 +1,14 @@
+
 import footer from '@/scss/components/footer.module.scss'
 import Image from 'next/image'
 import logoGitHub from "@/assets/github.svg"
 import logoLinkedin from "@/assets/linkedin.svg"
 import logoInstagram from "@/assets/instagram.svg"
 import logoMail from "@/assets/mail.svg"
-import Newsletter from '../newsletter/newsletter'
-import style from '@/scss/components/newsletter.module.scss';
+
 
 const Footer = () => {
+
   return (
     <div className={footer.footerLayout}>
       <Image src={logoGitHub} alt='github' className={footer.imgLogo}/>
