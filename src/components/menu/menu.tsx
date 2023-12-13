@@ -1,11 +1,15 @@
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react'
 import menu from '@/scss/components/menu.module.scss'
 import { useDispatch } from 'react-redux'
 import { changeSection } from '@/lib/redux/features/sectionSlice'
+import { usePathname } from 'next/navigation'
 
 const Menu = () => {
   
+
+  const pathname=usePathname()
+
   const dispatch=useDispatch()
 
   const handleChanheSection=(section:string)=>{
@@ -14,14 +18,42 @@ const Menu = () => {
 
   }
 
+  const userSections=[
+    { id: "about", title: "Sobre mi" },
+    { id: "skills", title: "Conocimientos" },
+    { id: "experience", title: "Experiencia" },
+    { id: "projects", title: "Proyectos" },
+    { id: "contact", title: "Contacto" },
+  ]
+
+  const adminSections=[
+    { id:"adminProjects", title:"Projectos" },
+    { id: "adminExperience", title: "Experiencia" },
+    { id: "skills", title: "Conocimientos" },
+    { id: "messages", title:"Mensajes"},
+    {id:"blog", title:"Blog posts"}
+  ]
+
+  const isAdmin=pathname.includes("admin")
+
+  console.log(isAdmin)
   return (
     <aside className={menu.menuLayout}>
       <ul>
-        <li onClick={()=>handleChanheSection("about")}><span>01. </span>Sobre mi</li>
-        <li onClick={()=>handleChanheSection("skills")}><span>02. </span>Conocimientos</li>
-        <li onClick={()=>handleChanheSection("experience")}><span>03. </span>Experiencia</li>
-        <li onClick={()=>handleChanheSection("projects")}><span>04. </span>Proyectos</li>
-        <li onClick={()=>handleChanheSection("contact")}><span>05. </span>Contacto</li>
+        {
+          !isAdmin ? 
+            userSections.map((section, index)=>{
+              return(
+                <li key={index} onClick={()=>handleChanheSection(section.id)}><span>0{index+1}. </span>{section.title}</li>
+              )
+            })
+          :
+          adminSections.map((section, index)=>{
+            return(
+              <li key={index} onClick={()=>handleChanheSection(section.id)}><span>0{index+1}. </span>{section.title}</li>
+            )
+          })
+        }
       </ul>
     </aside>
   )

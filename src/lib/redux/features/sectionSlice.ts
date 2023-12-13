@@ -26,6 +26,8 @@ export const sectionsSlice=createSlice({
                 case "contact":
                     state.name="contact"
                     break;
+                default:
+                    return state
             }
         }
     }

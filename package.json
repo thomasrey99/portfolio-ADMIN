@@ -17,7 +17,7 @@
     "particles.js": "^2.0.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-redux": "^9.0.2",
+    "react-redux": "^9.0.4",
     "sass": "^1.69.5",
     "TagCloud": "^2.4.0"
   },
