@@ -1,9 +1,10 @@
-
+import Sections from "@/components/sections/sections"
+import style from "../page.module.scss"
 const Page = () => {
   return (
-    <div>
-      <h1>panel de admin</h1>
-    </div>
+    <main className={style.main}>
+      <Sections/>
+    </main>
   )
 }
 

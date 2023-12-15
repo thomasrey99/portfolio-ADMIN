@@ -1,9 +1,11 @@
 .aboutCont{
     width: 80%;
     height: auto;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items:flex-start;
+    justify-content: center;
     gap: 10px;
     .titleImgCont{
         width: 100%;

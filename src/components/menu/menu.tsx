@@ -1,18 +1,31 @@
 "use client"
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import menu from '@/scss/components/menu.module.scss'
-import { useDispatch } from 'react-redux'
+import { useDispatch } from '@/lib/redux/reduxHooks'
 import { changeSection } from '@/lib/redux/features/sectionSlice'
 import { usePathname } from 'next/navigation'
+import { useGetExperienceQuery } from '@/lib/redux/service/experience.Api'
+import { useGetSkillsQuery } from '@/lib/redux/service/skilsAPI'
+import { useGetProjectsQuery } from '@/lib/redux/service/projectsAPI'
+import { setExperience } from '@/lib/redux/features/experience'
+import { setSkills } from '@/lib/redux/features/skillsSlice'
+import { setProjects } from '@/lib/redux/features/projectsSlice'
+import { sectionTypes } from '@/utils/types'
 
 const Menu = () => {
-  
 
   const pathname=usePathname()
 
   const dispatch=useDispatch()
 
-  const handleChanheSection=(section:string)=>{
+
+  const {data:experience}=useGetExperienceQuery(null)
+
+  const {data:skills}=useGetSkillsQuery(null)
+
+  const {data:projects}=useGetProjectsQuery(null)
+
+  const handleChangeSection=(section:string)=>{
 
     dispatch(changeSection(section))
 
@@ -27,33 +40,47 @@ const Menu = () => {
   ]
 
   const adminSections=[
-    { id:"adminProjects", title:"Projectos" },
-    { id: "adminExperience", title: "Experiencia" },
+
+    { id: "about", title: "Sobre mi" },
+    { id: "projects", title: "Proyectos" },
+    { id: "experience", title: "Experiencia" },
     { id: "skills", title: "Conocimientos" },
-    { id: "messages", title:"Mensajes"},
-    {id:"blog", title:"Blog posts"}
+    { id: "messages", title:"Mensajes" },
+    { id: "blog post", title:"Blog posts" }
+
   ]
+
+  const renderSections=(sections:Array<any>)=>{
+
+    return sections.map((section:sectionTypes, index)=>{
+
+      return (
+        <li key={index} onClick={()=>handleChangeSection(section.id)}><span>0{index+1}. </span>{section.title}</li>
+      )
+
+    })
+  }
 
   const isAdmin=pathname.includes("admin")
 
-  console.log(isAdmin)
+  useEffect(()=>{
+
+  if(experience){
+    dispatch(setExperience(experience))
+  }
+  if(skills){
+    dispatch(setSkills(skills))
+  }
+  if(projects){
+    dispatch(setProjects(projects))
+  }
+
+  },[experience, skills, projects])
+
   return (
     <aside className={menu.menuLayout}>
       <ul>
-        {
-          !isAdmin ? 
-            userSections.map((section, index)=>{
-              return(
-                <li key={index} onClick={()=>handleChanheSection(section.id)}><span>0{index+1}. </span>{section.title}</li>
-              )
-            })
-          :
-          adminSections.map((section, index)=>{
-            return(
-              <li key={index} onClick={()=>handleChanheSection(section.id)}><span>0{index+1}. </span>{section.title}</li>
-            )
-          })
-        }
+        {!isAdmin ? renderSections(userSections) : renderSections(adminSections)}
       </ul>
     </aside>
   )

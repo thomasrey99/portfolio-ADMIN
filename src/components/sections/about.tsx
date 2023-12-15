@@ -14,7 +14,7 @@ const About = () => {
   };
 
   return (
-    <section className={styles.aboutCont}>
+    <div className={styles.aboutCont}>
       <p>
         Hola 👋, mi nombre es 
       </p>
@@ -34,7 +34,7 @@ const About = () => {
 
       <button onClick={descargarCV}>Descargar CV</button>
 
-    </section>
+    </div>
   );
 };
 

@@ -1,0 +1,38 @@
+.cont{
+    width:100%;
+    height: 76vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+    .header{
+        padding: 10px;
+        width: 100%;
+        min-height: 15vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        .titleAnimated {
+            font-size: 4em;
+            background: linear-gradient(to right, var(--ligth-blue), var(--pink));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .addButton{
+            padding: 10px 20px;
+            border: 1px solid var(--ligth-blue);
+            cursor: pointer;
+            color: var(--ligth-blue);
+            border-radius: 20px;
+            &:hover{
+                background: var(--ligth-blue);
+                color: black;
+                box-shadow: 1px 1px 10px var(--ligth-blue);
+            }
+        }
+    }
+    
+}

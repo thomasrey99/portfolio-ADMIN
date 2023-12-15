@@ -2,6 +2,8 @@ import navbar from '@/scss/components/navbar.module.scss'
 import Link from 'next/link'
 
 const Navbar = () => {
+
+
   return (
     <header className={navbar.headerLayout}>
       <nav className={navbar.navLinks}>

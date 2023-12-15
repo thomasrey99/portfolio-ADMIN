@@ -4,6 +4,9 @@ import { useSelector } from "@/lib/redux/reduxHooks"
 import About from "./about"
 import Skills from "./skills"
 import Contact from "@/components/forms/contactForm/contactForm"
+import Projects from "./projects"
+import Experience from "./experience"
+import Messages from "./messages"
 
 const Sections = () => {
   
@@ -11,11 +14,14 @@ const Sections = () => {
 
   console.log(section)
   return (
-    <div className={style.sectionCont}>
+    <section className={style.sectionCont}>
         {section==="about" && <About/>}
         {section==="skills" && <Skills/>}
         {section==="contact" && <Contact/>}
-    </div>
+        {section==="projects" && <Projects/>}
+        {section==="experience" && <Experience/>}
+        {section==="messages" && <Messages/>}
+    </section>
   )
 }
 

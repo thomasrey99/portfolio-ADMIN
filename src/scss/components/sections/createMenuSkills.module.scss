@@ -1,0 +1,46 @@
+.menuCont{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--dark-background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    .itemsCont{
+        width: 60%;
+        min-height: 80%;
+        background: var(--dark-background);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 20px;
+        .buttonCont{
+            width: 50%;
+            min-height: 60%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            gap: 20px;
+            .button{
+                width: 200px;
+                height: 50px;
+                background: var(--ligth-blue);
+                color: black;
+                cursor: pointer;
+            }
+            .buttonCancel{
+                width: 200px;
+                height: 50px;
+                background: orange;
+                color: black;
+                cursor: pointer;
+            }
+        }
+    }
+    
+    
+}

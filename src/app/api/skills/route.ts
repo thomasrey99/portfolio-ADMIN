@@ -20,7 +20,7 @@ export async function GET () {
     } catch (error) {
         
         return NextResponse.json({
-            message:"error when consulting skills"
+            message:"error loading skills"
         })
 
     }
