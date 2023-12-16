@@ -5,16 +5,20 @@ import { useState } from "react"
 import CreateSkillForm from "../forms/createSkillForm/createSkillForm"
 import { useSelector } from "@/lib/redux/reduxHooks"
 import TechCard from "../Card/skillCard/techSkill/techCard"
-import { skills, softSkills } from '../../utils/types';
+import { certifications, skills, softSkills } from '../../utils/types';
 import SoftCard from "../Card/skillCard/softSkill/softCard"
 import CreateMenu from "./createMenu"
 import CreateSoftSkillForm from "../forms/createSkillForm/createSoftSkillForm"
+import CreateCertification from "../forms/createSkillForm/createCertification"
+import CertificateCard from "../Card/certificateCard/certificateCard"
 
 const Skills = () => {
 
   const techSkills=useSelector(state=>state.skills.techSkills)
 
   const softSkills=useSelector(state=>state.skills.softSkills)
+
+  const certificates=useSelector(state=>state.certificates.allCertifications)
 
   const [add, setAdd]=useState(false)
 
@@ -47,6 +51,9 @@ const Skills = () => {
     <div className={style.cont}>
 
         <div className={style.header}>
+          <h1 className={style.titleAnimated}>{
+          typeSkill==="tech skills"?"Tech skills":typeSkill==="soft skills"?"Soft skills":typeSkill==="certifications"?"Certificaciones":""
+          }</h1>
           <select className={style.select} onChange={handleChangeType} value={typeSkill}>
             <option value="tech skills">Tech skills</option>
             <option value="soft skills">Soft skills</option>
@@ -73,6 +80,13 @@ const Skills = () => {
                 )
               })
             }
+            {
+              typeSkill==="certifications" && certificates?.map((certificate:certifications, index)=>{
+                return(
+                  <CertificateCard key={index} title={certificate.title} image={certificate.image} urlCertificate={certificate.urlCertificate} institution={certificate.institution} achievement={certificate.achievement}/>
+                )
+              })
+            }
           </div>
         </div>
         {
@@ -83,6 +97,9 @@ const Skills = () => {
         }
         {
           form==="create soft skill" && <CreateSoftSkillForm  close={closeForm}/>
+        }
+        {
+          form==="create certification" && <CreateCertification  close={closeForm}/>
         }
     </div>
   )

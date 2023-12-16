@@ -3,20 +3,8 @@ import style from '@/scss/components/forms/createTechSkillForm.module.scss';
 import { createNotification } from '@/utils/notifications/createNotification';
 import { uploadFile } from '@/firebase/imageStorage';
 import { usePostSkillMutation } from '@/lib/redux/service/skilsAPI';
+import { skillInfo } from '@/utils/types';
 
-        {/*name,
-        image,
-        level,
-        type,
-        yearExperience,*/}
-
-interface skillInfo {
-    name:string,
-    type:string,
-    image:string | File,
-    level:string,
-    yearExperience:number
-}
 
 const CreateSkillForm = ({close}:any) => {
 

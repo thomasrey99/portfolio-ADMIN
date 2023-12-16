@@ -11,6 +11,8 @@ import { setExperience } from '@/lib/redux/features/experience'
 import { setSkills } from '@/lib/redux/features/skillsSlice'
 import { setProjects } from '@/lib/redux/features/projectsSlice'
 import { sectionTypes } from '@/utils/types'
+import { useGetCertificationsQuery } from '@/lib/redux/service/certificationsApi'
+import { setCertifications } from '@/lib/redux/features/certificationsSlice'
 
 const Menu = () => {
 
@@ -24,6 +26,8 @@ const Menu = () => {
   const {data:skills}=useGetSkillsQuery(null)
 
   const {data:projects}=useGetProjectsQuery(null)
+
+  const {data:certifications}=useGetCertificationsQuery(null)
 
   const handleChangeSection=(section:string)=>{
 
@@ -75,8 +79,14 @@ const Menu = () => {
     dispatch(setProjects(projects))
   }
 
-  },[experience, skills, projects])
+  if(certifications){
+    dispatch(setCertifications(certifications))
+  }
 
+  },[experience, skills, projects, certifications])
+
+  console.log(certifications)
+  
   return (
     <aside className={menu.menuLayout}>
       <ul>

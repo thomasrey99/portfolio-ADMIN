@@ -6,13 +6,15 @@ export const postCertificate=async(
     image:string,
     institution:string,
     title:string,
-    urlCertificate:string
+    urlCertificate:string,
+    achievement:string
 )=>{
     if(
         !image ||
         !institution ||
         !title ||
-        !urlCertificate
+        !urlCertificate ||
+        !achievement
     ){
         
         return {message:"insuficient data!"}
@@ -22,7 +24,8 @@ export const postCertificate=async(
             title,
             institution,
             image,
-            urlCertificate
+            urlCertificate, 
+            achievement
         })
 
     }

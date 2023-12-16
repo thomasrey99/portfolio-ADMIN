@@ -21,6 +21,22 @@ export interface skills {
     yearExperience:number,
 }
 
+export interface skillInfo {
+    name:string,
+    type:string,
+    image:string | File,
+    level:string,
+    yearExperience:number
+}
+
+export interface certificateInfo{
+    title:string,
+    institution:string,
+    image:string | File,
+    urlCertificate:string,
+    achievement:string
+}
+
 export interface softSkills {
     name:string,
     type:string
@@ -39,7 +55,8 @@ export  interface certifications {
     image:string,
     institution:string,
     title:string,
-    urlCertificate:string
+    urlCertificate:string,
+    achievement:string
 }
 
 export interface stateSkills{

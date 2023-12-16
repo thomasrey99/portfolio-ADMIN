@@ -21,12 +21,13 @@ export async function POST (req:NextRequest){
         title,
         institution,
         image,
-        urlCertificate
+        urlCertificate,
+        achievement
     } =await req.json()
 
     try {
         
-        const insuficientData=await postCertificate( image, institution, title, urlCertificate)
+        const insuficientData=await postCertificate( image, institution, title, urlCertificate, achievement)
 
         if(!insuficientData){
 
