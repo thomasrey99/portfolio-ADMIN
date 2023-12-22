@@ -4,10 +4,9 @@ export interface project {
     description:string,
     rol:string,
     technologies:Array<string>,
-    year:string,
     repositoryURL:string,
     deployURL:string,
-    imageURL:string
+    imageURL:string | File
 }
 export interface sectionTypes{
     id:string,

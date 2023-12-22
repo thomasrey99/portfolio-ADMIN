@@ -1,10 +1,10 @@
 .aboutCont{
-    width: 80%;
+    width: 60%;
     height: auto;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items:flex-start;
+    align-items:center;
     justify-content: center;
     gap: 10px;
     .titleImgCont{
@@ -12,15 +12,18 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: start;
+        justify-content: center;
         position: relative;
         gap: 20px;
         .titleAnimated {
             font-size: 4em;
-            background: linear-gradient(to right, var(--ligth-blue), var(--pink));
+            background: linear-gradient(to right, var(--ligth-blue), #fff 35%, var(--pink));
+            background-size: 200% auto;
             background-clip: text;
             -webkit-background-clip: text;
+            -webkit-text-fill-color:transparent;
             color: transparent;
+            animation: gradient 3s linear infinite;
         }
         .img{
             width: 100px;
@@ -32,6 +35,8 @@
     
     p{
         color:white;
+        text-align: start;
+        font-size: 1rem;
         span{
             color:var(--ligth-blue) ;
             font-size: 1.5em;
@@ -53,5 +58,17 @@
             color: black;
             box-shadow: 1px 1px 15px var(--ligth-blue);
         }
+    }
+}
+
+@keyframes gradient{
+    0%{
+        background-position: 0% 75%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 70%;
     }
 }

@@ -22,7 +22,6 @@ const About = () => {
         <h1 className={styles.titleAnimated}>
           Thomas Rey
         </h1>
-        <Image src={profileImg} alt="thomas rey" className={styles.img}/>
       </div>
       <p><span>y soy Full stack web developer</span></p>
       <p>

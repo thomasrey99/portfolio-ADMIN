@@ -6,7 +6,6 @@ export const postProject=async (
     description:string,
     rol:string,
     technologies:Array<string>,
-    year:string,
     repositoryURL:string,
     deployURL:string,
     imageURL:string
@@ -17,7 +16,6 @@ export const postProject=async (
         !description ||
         !rol ||
         !technologies ||
-        !year ||
         !repositoryURL ||
         !deployURL||
         !imageURL
@@ -28,7 +26,6 @@ export const postProject=async (
             name,
             rol,
             technologies,
-            year,
             repositoryURL,
             deployURL,
             imageURL,

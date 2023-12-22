@@ -14,7 +14,7 @@ export const projectsApi=createApi({
         }),
         postProject:build.mutation({
             query: (body) => ({
-                url: "/projects",
+                url: "/api/projects",
                 method: "POST",
                 body
               }),

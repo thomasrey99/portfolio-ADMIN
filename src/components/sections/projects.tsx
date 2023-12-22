@@ -1,7 +1,7 @@
 "use client"
 import style from "@/scss/components/sections/projects.module.scss"
 import { useState } from "react"
-import CreateProjectForm from "../forms/createProjectFom.tsx/createProjectForm"
+import CreateProjectForm from "../forms/createProjectFom/createProjectForm"
 const Projects = () => {
   
   const [add, setAdd]=useState(false)
@@ -20,7 +20,7 @@ const Projects = () => {
             
         </div>
         {
-            add && <CreateProjectForm/>
+            add && <CreateProjectForm close={setAdd}/>
         }
     </div>
   )

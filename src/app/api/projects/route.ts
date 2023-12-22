@@ -24,7 +24,6 @@ export async function POST (req:NextRequest) {
         description,
         rol,
         technologies,
-        year,
         repositoryURL,
         deployURL,
         imageURL
@@ -32,7 +31,7 @@ export async function POST (req:NextRequest) {
 
     try {
         
-        const state=await postProject(name, description, rol, technologies, year, repositoryURL, deployURL, imageURL)
+        const state=await postProject(name, description, rol, technologies, repositoryURL, deployURL, imageURL)
 
         return NextResponse.json(state)
 
